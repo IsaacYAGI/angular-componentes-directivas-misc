@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
-import { UsuarioNuevoComponent } from './components/usuario/usuario-nuevo.component';
-import { UsuarioDetalleComponent } from './components/usuario/usuario-detalle.component';
-import { UsuarioEditarComponent } from './components/usuario/usuario-editar.component';
+
+import { USUARIO_ROUTES } from './components/usuario/usuario.route';;
 
 
 const routes: Routes = [
@@ -15,16 +14,8 @@ const routes: Routes = [
   { 
     path: 'usuario/:id', 
     component: UsuarioComponent,
-    children:[
-      {path:'nuevo', component: UsuarioNuevoComponent},
-      {path:'detalle', component: UsuarioDetalleComponent},
-      {path:'editar', component: UsuarioEditarComponent},
-      { 
-        path: '**', 
-        pathMatch:'full', redirectTo: 'editar'
-      },
+    children: USUARIO_ROUTES
     
-    ]
   },
   { 
     path: '**', 
